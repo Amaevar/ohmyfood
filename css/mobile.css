@@ -12,6 +12,7 @@ body {
     display: flex;
     justify-content: center;
     height: 30px;
+    width: 150px;
     padding: 10px;
 }
 
@@ -26,6 +27,7 @@ body {
 }
 
 .search-input {
+    width: 25%;
     display: flex;
     text-align: center;
     background-color: #dedede;
@@ -50,10 +52,8 @@ body {
 }
 
 .welcom {
-    display: flex;
-    text-align: center;
     margin: 0%;
-    
+
 }
 
 .button {
@@ -63,16 +63,35 @@ body {
 }
 
 .btn {
-
     margin: 20px;
     padding: 15px;
     width: 70%;
     border-radius: 30px;
     border: none;
-    background: linear-gradient(180deg, #d47be3, #A362D7);
+    background: linear-gradient(180deg, #D47BE3, #A362D7);
     color: rgb(255, 255, 255);
     box-shadow: 0 4px 12px rgba(85, 85, 85, 0.411);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
+
+.btn:hover {
+    animation: colorChange 0.5s ease forwards;
+}
+
+@keyframes colorChange {
+    0% {
+        background: linear-gradient(180deg, #D47BE3, #A362D7);
+        box-shadow: 0 4px 12px rgba(85, 85, 85, 0.411);
+    }
+
+
+    100% {
+        background: linear-gradient(180deg, #E68FF0, #B875E8);
+        box-shadow: 0 12px 30px rgba(85, 85, 85, 0.8);
+    }
+}
+
+
 
 .how {
     display: flex;
@@ -122,11 +141,12 @@ body {
     margin: 10px;
 }
 
-.resto{
-    background-color:  rgb(233, 233, 233);
+.resto {
+    background-color: rgb(233, 233, 233);
     padding: 10px;
     margin: 0%;
 }
+
 .box {
     padding: 20px;
     background-color: rgb(233, 233, 233);
@@ -145,26 +165,51 @@ body {
     top: 8px;
     right: 8px;
     background: #c8f1d2;
-    color: #1a8c41;
+    color: green;
     padding: 8px 8px;
     border-radius: 5px;
     font-size: 12px;
     font-weight: bold;
 }
-
 .heart {
-    color: black;
     position: absolute;
     bottom: 10px;
     right: 10px;
     font-size: 22px;
     padding: 10px;
-
+    cursor: pointer;
+    color: black;
 }
 
-
-.heart.filled {
-    color: #d44c9c;
+.heart::after {
+    content: "\f004";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D44C9C;
+    z-index: 2;
+    opacity: 0;
+}
+.heart:hover::after {
+    animation: fillHeart 0.5s ease forwards;
+}
+@keyframes fillHeart {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.15);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .card img {
@@ -207,12 +252,15 @@ a {
 
 
 footer {
+
     margin: 0%;
     padding: 0;
     background-color: rgb(33, 33, 33);
 }
 
 footer ul {
+    display: flex;
+    flex-direction: column;
     list-style: none;
     margin: 0%;
     padding: 10px;
@@ -229,18 +277,27 @@ footer a {
 }
 
 @media (min-width: 1280px) {
-.home{
-    text-align: center;
-}
-    .btn{
+    .home {
+        text-align: center;
+    }
+
+    .btn {
         width: 20%;
     }
-    
-    .how{
+
+    .how {
+     padding-left: 10%;
+     padding-right: 10%;
         display: flex;
         flex-direction: row;
+        justify-content: center;
     }
-    .box{
+
+    .step {
+        width: 50%;
+    }
+
+    .box {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -248,12 +305,23 @@ footer a {
         gap: 20px;
     }
 
-    .card{
+    .card {
         width: 40%;
         height: 40%;
     }
 
+    footer ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+    }
+
+ .section {
+    margin-left: 10%;
+}
+
 .resto{
-    padding-left: px;
+    padding-left: 10%;
 }
 }
