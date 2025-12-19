@@ -8,12 +8,88 @@ body {
     font-variation-settings: "wdth" 100;
 }
 
+.loader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    z-index: 9999;
+    animation: hide 0s forwards 2s;
+    /* disparaît après 1.6s */
+}
+
+/* Barre */
+.bar {
+    width: 200px;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Barre qui se remplit */
+.fill {
+    height: 100%;
+    width: 0;
+    background: #333;
+    animation: fill 1.5s forwards;
+}
+
+/* Icône à côté */
+.loader i {
+    font-size: 30px;
+    opacity: 0;
+    animation: show 0.2s forwards 1.5s;
+}
+
+/* Animations */
+@keyframes fill {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes show {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Apparition du site */
+.content {
+    opacity: 0;
+    animation: appear 0.5s forwards 1.6s;
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
+
 .logo {
     display: flex;
     justify-content: center;
     height: 30px;
     width: 150px;
     padding: 10px;
+}
+
+.logo2 {
+   filter: grayscale(100%) brightness(0) invert(1);
+    height: 30px;
+    width: 150px;
+
 }
 
 .search-container {
@@ -171,6 +247,7 @@ body {
     font-size: 12px;
     font-weight: bold;
 }
+
 .heart {
     position: absolute;
     bottom: 10px;
@@ -194,18 +271,22 @@ body {
     z-index: 2;
     opacity: 0;
 }
+
 .heart:hover::after {
     animation: fillHeart 0.5s ease forwards;
 }
+
 @keyframes fillHeart {
     0% {
         opacity: 0;
         transform: scale(0.8);
     }
+
     50% {
         opacity: 0.7;
         transform: scale(1.15);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -286,8 +367,8 @@ footer a {
     }
 
     .how {
-     padding-left: 10%;
-     padding-right: 10%;
+        padding-left: 10%;
+        padding-right: 10%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -311,21 +392,27 @@ footer a {
     }
 
     footer ul {
+        gap: 5px;
         display: flex;
         flex-direction: row;
         justify-content: end;
         align-items: center;
     }
 
- .section {
-    margin-left: 10%;
-}
+    .logo {
+        order: 1;
+    }
 
-.resto{
-    padding-left: 10%;
-}
+    .section {
+        margin-left: 10%;
+    }
 
-.search-input{
-    width: 8%;
-}
+    .resto {
+        padding-left: 10%;
+    }
+
+    .search-input {
+        width: 8%;
+    }
+
 }
