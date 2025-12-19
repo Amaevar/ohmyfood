@@ -146,7 +146,17 @@ h2 {
   }
 }
 
+.entree {
+  animation-delay: 0.2s;
+}
 
+.plat {
+  animation-delay: 1s;
+}
+
+.dessert {
+  animation-delay: 1.8s;
+}
 
 .price-container {
   display: flex;

@@ -1,4 +1,4 @@
-/****** General ***********/
+
 body {
     margin: 0%;
     font-family: "Roboto", sans-serif;
@@ -18,10 +18,10 @@ body {
     background: white;
     z-index: 9999;
     animation: hide 0s forwards 2s;
-    /* disparaît après 1.6s */
+   
 }
 
-/* Barre */
+
 .bar {
     width: 200px;
     height: 8px;
@@ -30,7 +30,7 @@ body {
     overflow: hidden;
 }
 
-/* Barre qui se remplit */
+
 .fill {
     height: 100%;
     width: 0;
@@ -38,14 +38,14 @@ body {
     animation: fill 1.5s forwards;
 }
 
-/* Icône à côté */
+
 .loader i {
     font-size: 30px;
     opacity: 0;
     animation: show 0.2s forwards 1.5s;
 }
 
-/* Animations */
+
 @keyframes fill {
     to {
         width: 100%;
@@ -65,7 +65,7 @@ body {
     }
 }
 
-/* Apparition du site */
+
 .content {
     opacity: 0;
     animation: appear 0.5s forwards 1.6s;
